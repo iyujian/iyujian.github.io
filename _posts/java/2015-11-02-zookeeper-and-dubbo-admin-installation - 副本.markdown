@@ -11,19 +11,19 @@ tags: zookeeper dubbo
 
 (1) 下载Zookeeper
 
-{% highlight shell %}
+{% highlight plaintext %}
 wget http://www.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
 {% endhighlight %}
 
 (2) 解压
 
-{% highlight shell %}
+{% highlight plaintext %}
 tar zxvf zookeeper-3.4.6.tar.gz
 {% endhighlight %}
 
 (3) 复制 conf/zoo_sample.cfg 为 conf/zoo.cfg
 
-{% highlight shell linenos %}
+{% highlight plaintext linenos %}
 cd zookeeper-3.4.6/conf
 cp zoo_sample.cfg zoo.cfg
 {% endhighlight %}
@@ -46,7 +46,7 @@ maxClientCnxns：限制连接到 ZooKeeper 的客户端的数量。
 
 (5) 启动
 
-{% highlight shell %}
+{% highlight plaintext %}
 ../bin/zkServer.sh start
 {% endhighlight %}
 
@@ -56,7 +56,7 @@ maxClientCnxns：限制连接到 ZooKeeper 的客户端的数量。
 
 3、下载并安装tomcat
 
-{% highlight shell linenos %}
+{% highlight plaintext linenos %}
 wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.65/bin/apache-tomcat-7.0.65.tar.gz
 tar zxvf apache-tomcat-6.0.35.tar.gz
 cd apache-tomcat-6.0.35
@@ -67,7 +67,7 @@ rm -rf webapps/ROOT
 
 (1) 下载并解压dubbo-admin
 
-{% highlight shell linenos %}
+{% highlight plaintext linenos %}
 wget http://code.alibabatech.com/mvn/releases/com/alibaba/dubbo-admin/2.4.9/dubbo-admin-2.4.9.war
 unzip dubbo-admin-2.4.1.war -d webapps/ROOT
 {% endhighlight %}
@@ -76,7 +76,7 @@ ps：现在http://code.alibabatech.com已打不开，可以去https://github.com
 
 (2) 配置: (或将dubbo.properties放在当前用户目录下)
 
-{% highlight shell %}
+{% highlight plaintext %}
 vi webapps/ROOT/WEB-INF/dubbo.properties
 {% endhighlight %}
 
@@ -91,13 +91,13 @@ dubbo.admin.guest.password=guest
 
 (3) 启动:
 
-{% highlight shell %}
+{% highlight plaintext %}
 ./bin/startup.sh
 {% endhighlight %}
 
 (4) 停止：
 
-{% highlight shell %}
+{% highlight plaintext %}
 ./bin/shutdown.sh
 {% endhighlight %}
 
