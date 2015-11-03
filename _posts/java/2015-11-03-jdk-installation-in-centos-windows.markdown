@@ -20,7 +20,7 @@ categories: java
 
 3、CentOS下Java环境变量的配置
 
-{% highlight shell linenos %}
+{% highlight text linenos %}
 
 vi /etc/profile
 
@@ -28,7 +28,7 @@ vi /etc/profile
 
 加入如下配置：
 
-{% highlight plaintext linenos %}
+{% highlight text linenos %}
 
 export JAVA_HOME=/usr/java/jdk1.7.0_79
 export PATH=$JAVA_HOME/bin:$PATH
