@@ -3,13 +3,16 @@ layout: post
 title:  "Apache Shiro 自定义 Realm 实现登录及授权"
 date:   2015-11-06 09:41:55 +0800
 categories: java
+tags: shiro
 ---
 在上一篇文章讲了Shiro自带的JdbcRealm实现的登录和授权，但是这种方式不能在principal中传入对象，所以我们可能需要自定义Realm的实现。
 
 1、自定义MyRealm继承AuthorizingRealm
 {% highlight java linenos %}
-import com.ces.system.api.auth.UserAuth;
-import com.ces.system.api.auth.model.UserModel;
+import com.***.User;
+import com.***.userService;
+import com.***.roleService;
+import com.***.resourceService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

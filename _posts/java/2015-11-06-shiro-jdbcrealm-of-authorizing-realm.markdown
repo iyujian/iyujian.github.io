@@ -3,6 +3,7 @@ layout: post
 title:  "Apache Shiro JdbcRealm 实现登录及授权"
 date:   2015-11-06 09:15:38 +0800
 categories: java
+tags: shiro
 ---
 1、pom文件中添加依赖
 
