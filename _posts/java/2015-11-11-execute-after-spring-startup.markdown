@@ -9,13 +9,13 @@ tags: spring
 
 但是直接做的话会有个问题，就是在spring启动后onApplicationEvent方法会被执行两次。
 
-这是因为此时存在两个ApplicationContext，
+这是因为此时存在两个ApplicationContext：
 
 一个是Root WebApplicationContext；
 
-另一个是SpringMVC的ApplicationContext，叫做：WebApplicationContext for namespace 'dispatcher-servlet'，它是Root applicationContext的子容器。（dispatcher-servlet为你的springmvc的配置文件名）
+另一个是SpringMVC的ApplicationContext，叫做：WebApplicationContext for namespace 'dispatcher-servlet'（dispatcher-servlet为你的springmvc的配置文件名），它是Root WebApplicationContext的子容器。
 
-解决办法就是加上判断，判断当前WebApplicationContext是否有父容器。
+解决办法就是判断当前WebApplicationContext是否有父容器。
 
 {% highlight java linenos %}
 import org.springframework.beans.factory.annotation.Autowired;
