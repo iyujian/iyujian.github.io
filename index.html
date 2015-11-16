@@ -7,21 +7,20 @@ layout: default
   <h1 class="page-title">遇见</h1>
   <!-- <span class="page-heading">文章列表：</span> -->
 
-  <ul class="post-list">
+  <section class="post-list">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+    <article class="post-entry">
+      <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
         <div class="post-excerpt">
-        	{{post.content || split: '<!-- more -->' | first}}
+          {{post.content || split: '<!-- more -->' | first}}
         </div>
         <div class="post-more"><a href="{{post.url}}" title="{{post.title}}">阅读全文</a></div>
-      </li>
+    </article>
     {% endfor %}
-  </ul>
-
+  </section>
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
   <p>tag cloud： 

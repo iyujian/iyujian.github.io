@@ -181,11 +181,15 @@
     margin-left: 0;
     list-style: none;
 
-    > li {
+    > article {
         margin-bottom: $spacing-unit;
         border: 1px solid $grey-color-light;
         padding: $spacing-unit;
         background-color: white;
+        animation: post-entry 0.6s;
+        -moz-animation: post-entry 0.6s; /* Firefox */
+        -webkit-animation: post-entry 0.6s; /* Safari and Chrome */
+        -o-animation: post-entry 0.6s; /* Opera */
     }
 }
 
@@ -251,4 +255,40 @@
 }
 .post-more {
     text-align: right;
+}
+
+/* CSS3 animation */
+@mixin animation-post-entry {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(1.01);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes post-entry {
+    @include animation-post-entry;
+}
+
+@-moz-keyframes post-entry 
+/* Firefox */
+{
+    @include animation-post-entry;
+
+}
+@-webkit-keyframes post-entry
+/* Safari and Chrome */
+{
+    @include animation-post-entry;
+}
+@-o-keyframes post-entry
+/* Opera */
+{
+    @include animation-post-entry;
 }
