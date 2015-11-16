@@ -5,6 +5,11 @@ date:   2015-11-02 09:27:08 +0800
 categories: java
 tags: zookeeper dubbo
 ---
+
+DUBBO是一个分布式服务框架，用于提供高性能和透明化的RPC远程服务调用方案，是阿里巴巴SOA服务化治理方案的核心框架。Dubbo架构的节点包含Provider、Consumer、Registry、Monitor、Container，其中Registry（注册中心）可以使用Zookeeper注册中心、Redis注册中心等来进行服务注册。下面是Zookeeper及Dubbo-admin的安装过程：
+
+<!-- more -->
+
 1、安装jdk并配置java环境变量
 
 2、安装Zookeeper

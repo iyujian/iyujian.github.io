@@ -17,6 +17,8 @@ tags: spring
 
 解决办法就是判断当前WebApplicationContext是否有父容器。
 
+<!-- more -->
+
 {% highlight java linenos %}
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

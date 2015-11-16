@@ -4,16 +4,20 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">文章列表：</h1>
+  <h1 class="page-title">遇见</h1>
+  <!-- <span class="page-heading">文章列表：</span> -->
 
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+        <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+        <div class="post-excerpt">
+        	{{post.content || split: '<!-- more -->' | first}}
+        </div>
+        <div class="post-more"><a href="{{post.url}}" title="{{post.title}}">阅读全文</a></div>
       </li>
     {% endfor %}
   </ul>

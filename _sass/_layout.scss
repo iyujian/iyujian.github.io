@@ -173,6 +173,8 @@
 
 .page-heading {
     font-size: 20px;
+    margin-bottom: $spacing-unit;
+    display: inline-block;
 }
 
 .post-list {
@@ -181,6 +183,9 @@
 
     > li {
         margin-bottom: $spacing-unit;
+        border: 1px solid $grey-color-light;
+        padding: $spacing-unit;
+        background-color: white;
     }
 }
 
@@ -239,4 +244,11 @@
             font-size: 18px;
         }
     }
+}
+
+.page-title {
+    display: none;
+}
+.post-more {
+    text-align: right;
 }

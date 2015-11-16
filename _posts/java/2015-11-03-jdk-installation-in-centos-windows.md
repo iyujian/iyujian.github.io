@@ -4,6 +4,11 @@ title:  "JDK的安装和Java环境变量的配置(CentOS和windows)"
 date:   2015-11-03 14:09:27 +0800
 categories: java
 ---
+
+以下是分别在Windows和CentOS系统下JDK的安装过程及环境变量的配置过程：
+
+<!-- more -->
+
 1、从oracle下载JDK并安装，windows下直接点击安装即可，CentOS下用yum或rpm安装，具体过程略过。
 
 2、Windows下Java环境变量的配置

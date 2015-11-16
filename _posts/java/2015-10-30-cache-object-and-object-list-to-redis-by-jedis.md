@@ -15,6 +15,8 @@ jedis.set(byte[] key, byte[] value);
 
 我们可以使用这个方法来间接的实现对对象的缓存。原理就是在缓存对象之前，先将该对象序列化为 byte 数组，而取出缓存后再反序列化为对象。
 
+<!-- more -->
+
 1、序列化工具抽象类
 
 {% highlight java linenos %}

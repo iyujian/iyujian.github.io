@@ -6,7 +6,9 @@ categories: java
 tags: dubbo
 ---
 
-提供者（Provider），消费者（Consumer）
+下面是一个Dubbo实现RPC服务的小例子，包含了服务提供者（Provider）和服务消费者（Consumer）部分，服务注册于Zookeeper上。
+
+<!-- more -->
 
 1、服务提供者（Provider）部分
 

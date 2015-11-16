@@ -6,6 +6,9 @@ categories: java
 tags: shiro
 ---
 shiro的权限控制可以配置在shiroFilter的filterChainDefinitions中：
+
+<!-- more -->
+
 {% highlight xml linenos %}
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
     <!-- 此处省略其他配置信息 -->

@@ -5,11 +5,16 @@ date:   2015-11-06 09:15:38 +0800
 categories: java
 tags: shiro
 ---
+以下是使用shiro自身的JdbcRealm实现的登录及授权功能：
+
+<!-- more -->
+
 1、pom文件中添加依赖
 
 {% highlight xml linenos %}
 <dependency>
 	<groupId>org.apache.shiro</groupId>
+
 	<artifactId>shiro-core</artifactId>
 </dependency>
 <dependency>
