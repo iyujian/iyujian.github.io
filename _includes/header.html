@@ -4,7 +4,7 @@
             <li><a href="{{ site.baseurl }}/" title="{{ site.title }}">{{ site.title }}</a></li>
             {% for category in site.categories %}
             <li>
-                <a href="/showCategory.html?categoryName={{ category | first }}" title="{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})
+                <a href="/" title="{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})
             </li>
             {% endfor %}
             {% for my_page in site.pages %}
@@ -23,7 +23,7 @@
         <ul>
             {% for category in site.categories %}
             <li>
-                <a href="/showCategory.html?categoryName={{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})
+                <a href="/">{{ category | first }}</a> ({{ category | last | size }})
             </li>
             {% endfor %}
         </ul>
