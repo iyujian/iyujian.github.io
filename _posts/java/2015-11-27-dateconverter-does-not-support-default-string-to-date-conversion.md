@@ -19,9 +19,9 @@ org.apache.commons.beanutils.ConversionException: DateConverter does not support
 	...
 ```
 
-<!-- more -->
-
 出现这个异常信息，是因为 org.apache.commons.beanutils.ConvertUtils.convert(Object value, Class<?> targetType) 方法不支持 String 转 java.util.Date。 追踪源码我们可以发现它支持的转化类型只有：
+
+<!-- more -->
 
 <ul>
  <li>java.lang.BigDecimal (no default value)</li>
@@ -41,7 +41,7 @@ org.apache.commons.beanutils.ConversionException: DateConverter does not support
  <li>java.sql.Date (no default value)</li>
  <li>java.sql.Time (no default value)</li>
  <li>java.sql.Timestamp (no default value)</li>
- </ul>
+</ul>
 
 解决方案：
 
