@@ -1,6 +1,12 @@
 /**
  * Site header
  */
+ $site-header-width: 80%;
+ @mixin box-sizing-border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+ }
 .site-header {
     border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
@@ -8,6 +14,29 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
+
+    width: $site-header-width;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+
+    @include box-sizing-border-box;
+
+    > nav > ul > li {
+        float: left;
+        width: $site-header-width/5;
+        padding: 0 1em;
+        @include box-sizing-border-box;
+        list-style: none;
+        > a {
+            color: $text-color;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 .site-title {
@@ -92,6 +121,22 @@
     }
 }
 
+/**
+ * Site sidebar
+ */
+ .site-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100 - $site-header-width;
+    background-color: $grey-color-dark;
+    height: 100%;
+    color: white;
+    padding-top: 100px;
+    a {
+        color: white;
+    }
+ }
 
 
 /**
@@ -168,7 +213,9 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $spacing-unit*3 0 $spacing-unit;
+    width: $site-header-width;
+    float: right;
 }
 
 .page-heading {
