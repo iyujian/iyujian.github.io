@@ -19,6 +19,8 @@ org.apache.commons.beanutils.ConversionException: DateConverter does not support
 	...
 ```
 
+<!-- more -->
+
 出现这个异常信息，是因为 org.apache.commons.beanutils.ConvertUtils.convert(Object value, Class<?> targetType) 方法不支持 String 转 java.util.Date。 追踪源码我们可以发现它支持的转化类型只有：
 
 <ul>
