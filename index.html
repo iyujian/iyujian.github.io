@@ -12,8 +12,7 @@ layout: default
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
             <div class="post-excerpt">
-                {{post.content || split: '
-                <!-- more -->' | first}}
+                {{post.content || split: '<!-- more -->' | first}}
             </div>
             <div class="post-more"><a href="{{post.url}}" title="{{post.title}}">阅读全文</a></div>
         </article>
