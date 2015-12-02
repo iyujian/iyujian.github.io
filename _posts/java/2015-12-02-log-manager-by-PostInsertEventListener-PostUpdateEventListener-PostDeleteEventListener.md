@@ -163,8 +163,9 @@ public class LogListener implements PostInsertEventListener, PostUpdateEventList
 2、注册监听器，可以在spring容器启动后进行注册（[在Spring启动后执行一些操作](execute-after-spring-startup.html "在Spring启动后执行一些操作")）。
 
 {% highlight java linenos %}
-/** 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
-*/
+/** 
+ * 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
+ */
 EventListenerRegistry registry  = ((SessionFactoryImpl)entityManagerFactory.unwrap(SessionFactory.class)).getServiceRegistry().getService(EventListenerRegistry.class);
 registry.getEventListenerGroup(EventType.POST_INSERT).appendListener(logListener);
 registry.getEventListenerGroup(EventType.POST_UPDATE).appendListener(logListener);
