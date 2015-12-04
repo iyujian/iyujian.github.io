@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "设计模式之——策略模式（Head first设计模式学习笔记）"
-date:   2015年12月4日 14:20:45 +0800
+date:   2015-12-04 14:20:45 +0800
 categories: java
-tags: design-patterns
+tags: design patterns
 ---
 1、 策略模式的定义：
 
