@@ -25,4 +25,6 @@ The directive assigns the directory for storing the temporary files in it with t
 
 Directive assigns the maximum accepted body size of client request.
 
+<!-- more -->
+
 更多请参考：http://nginx.org/en/docs/http/ngx_http_core_module.html
