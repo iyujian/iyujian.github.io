@@ -2,7 +2,7 @@
 layout: post
 title:  "Nginx中请求大小的限制的设置"
 date:   2016-01-11 13:46:53 +0800
-categories: java
+categories: others
 tags: nginx
 ---
 Nginx对客户端请求缓冲区大小有个默认限制，如果超过了该值（比如在上传大文件时），会报500错误。
