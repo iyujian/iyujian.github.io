@@ -29,7 +29,7 @@ tags: design patterns
 package designpatterns.strategypattern.behavior;
 
 /**
- * 武器行为接口
+ * 武器行为策略接口
  */
 public interface WeaponBehavior {
 
@@ -43,7 +43,7 @@ public interface WeaponBehavior {
 package designpatterns.strategypattern.behavior;
 
 /**
- * 弓箭行为
+ * 弓箭行为策略
  */
 public class BowAndArrowBehavior implements WeaponBehavior {
     @Override
@@ -58,7 +58,7 @@ public class BowAndArrowBehavior implements WeaponBehavior {
 package designpatterns.strategypattern.behavior;
 
 /**
- * 斧头行为
+ * 斧头行为策略
  */
 public class AxeBehavior implements WeaponBehavior {
     @Override
