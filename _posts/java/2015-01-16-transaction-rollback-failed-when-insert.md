@@ -11,7 +11,7 @@ tags: transaction mysql
 
 查看mysql版本：
 
-```
+<pre>
 mysql> select version();
 +-----------+
 | version() |
@@ -19,11 +19,11 @@ mysql> select version();
 | 5.1.73    |
 +-----------+
 1 row in set (0.00 sec)
-```
+</pre>
 
 查看mysql存储引擎
 
-```
+<pre>
 mysql> SHOW ENGINES;
 +------------+---------+------------------------------------------------------------+--------------+------+------------+
 | Engine     | Support | Comment                                                    | Transactions | XA   | Savepoints |
@@ -35,15 +35,18 @@ mysql> SHOW ENGINES;
 | MEMORY     | YES     | Hash based, stored in memory, useful for temporary tables  | NO           | NO   | NO         |
 +------------+---------+------------------------------------------------------------+--------------+------+------------+
 5 rows in set (0.00 sec)
-```
+</pre>
+
 到了这里原因就了然了，关于"MyISAM"和"InnoDB"及其他的各种存储引擎的区别这里就不展开了，我们只需要将我们的表的存储引擎改为"InnoDB"就可以了。
-```
+
+<pre>
 ALTER TABLE table_name ENGINE = InnoDB;
-```
-```
+</pre>
+
+<pre>
 mysql> ALTER TABLE table_name ENGINE = InnoDB;
 Query OK, 8 rows affected (0.03 sec)
 Records: 8  Duplicates: 0  Warnings: 0
-```
+</pre>
 
 如果是主库的话，最好是把默认的存储引擎改为 "InnoDB"。
