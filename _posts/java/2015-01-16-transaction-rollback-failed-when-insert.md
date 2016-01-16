@@ -11,30 +11,30 @@ tags: transaction mysql
 
 查看mysql版本：
 
-```mysql
-	mysql> select version();
-	+-----------+
-	| version() |
-	+-----------+
-	| 5.1.73    |
-	+-----------+
-	1 row in set (0.00 sec)
+```
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 5.1.73    |
++-----------+
+1 row in set (0.00 sec)
 ```
 
 查看mysql存储引擎
 
 ```
-	mysql> SHOW ENGINES;
-	+------------+---------+------------------------------------------------------------+--------------+------+------------+
-	| Engine     | Support | Comment                                                    | Transactions | XA   | Savepoints |
-	+------------+---------+------------------------------------------------------------+--------------+------+------------+
-	| MRG_MYISAM | YES     | Collection of identical MyISAM tables                      | NO           | NO   | NO         |
-	| CSV        | YES     | CSV storage engine                                         | NO           | NO   | NO         |
-	| MyISAM     | DEFAULT | Default engine as of MySQL 3.23 with great performance     | NO           | NO   | NO         |
-	| InnoDB     | YES     | Supports transactions, row-level locking, and foreign keys | YES          | YES  | YES        |
-	| MEMORY     | YES     | Hash based, stored in memory, useful for temporary tables  | NO           | NO   | NO         |
-	+------------+---------+------------------------------------------------------------+--------------+------+------------+
-	5 rows in set (0.00 sec)
+mysql> SHOW ENGINES;
++------------+---------+------------------------------------------------------------+--------------+------+------------+
+| Engine     | Support | Comment                                                    | Transactions | XA   | Savepoints |
++------------+---------+------------------------------------------------------------+--------------+------+------------+
+| MRG_MYISAM | YES     | Collection of identical MyISAM tables                      | NO           | NO   | NO         |
+| CSV        | YES     | CSV storage engine                                         | NO           | NO   | NO         |
+| MyISAM     | DEFAULT | Default engine as of MySQL 3.23 with great performance     | NO           | NO   | NO         |
+| InnoDB     | YES     | Supports transactions, row-level locking, and foreign keys | YES          | YES  | YES        |
+| MEMORY     | YES     | Hash based, stored in memory, useful for temporary tables  | NO           | NO   | NO         |
++------------+---------+------------------------------------------------------------+--------------+------+------------+
+5 rows in set (0.00 sec)
 ```
 到了这里原因就了然了，关于"MyISAM"和"InnoDB"及其他的各种存储引擎的区别这里就不展开了，我们只需要将我们的表的存储引擎改为"InnoDB"就可以了。
 ```
