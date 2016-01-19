@@ -19,7 +19,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 
 2、修改项目中c3p0的配置文件，添加或修改属性“maxIdleTime”，使之小于Mysql的“wait_timeout”值。
 
-<pre>
+{% highlight xml linenos %}
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	<property name="driverClass" value="${jdbc.driverClass}" />
 	<property name="jdbcUrl" value="${jdbc.url}" />
@@ -28,10 +28,11 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 	<property name="maxIdleTime" value="10440"/>
 </bean>
 </pre>
+{% endhighlight %}
 
 3、定时使用连接池中的连接
 
-<pre>
+{% highlight xml linenos %}
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	<property name="driverClass" value="${jdbc.driverClass}" />
 	<property name="jdbcUrl" value="${jdbc.url}" />
@@ -41,7 +42,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 	<property name="idleConnectionTestPeriod" value="10440"/>
 	<property name="testConnectionOnCheckout" value="true"/>
 </bean>
-</pre>
+{% endhighlight %}
 
 <pre>
 严重: Servlet.service() for servlet [dispatcher] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed: 
