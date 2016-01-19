@@ -25,6 +25,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 	<property name="jdbcUrl" value="${jdbc.url}" />
 	<property name="user" value="${jdbc.username}"/>
 	<property name="password" value="${jdbc.password}"/>
+	<!-- 最大空闲时间 -->
 	<property name="maxIdleTime" value="10440"/>
 </bean>
 </pre>
@@ -38,8 +39,11 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 	<property name="jdbcUrl" value="${jdbc.url}" />
 	<property name="user" value="${jdbc.username}"/>
 	<property name="password" value="${jdbc.password}"/>
-	<property name="preferredTestQuery" value="SELECT 1"/> 
+	<!-- 定义所有连接测试都执行的测试语句 -->
+	<property name="preferredTestQuery" value="SELECT 1"/>
+	<!-- 定义多长时间检查所有连接池中的空闲连接 -->
 	<property name="idleConnectionTestPeriod" value="10440"/>
+	<!-- 因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable等方法来提升连接测试的性能。 -->
 	<property name="testConnectionOnCheckout" value="true"/>
 </bean>
 {% endhighlight %}
