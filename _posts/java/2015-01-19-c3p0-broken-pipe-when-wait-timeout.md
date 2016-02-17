@@ -19,7 +19,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 
 2、修改项目中c3p0的配置文件，添加或修改属性“maxIdleTime”，使之小于Mysql的“wait_timeout”值。
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	<property name="driverClass" value="${jdbc.driverClass}" />
 	<property name="jdbcUrl" value="${jdbc.url}" />
@@ -33,7 +33,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 
 3、定时使用连接池中的连接
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	<property name="driverClass" value="${jdbc.driverClass}" />
 	<property name="jdbcUrl" value="${jdbc.url}" />

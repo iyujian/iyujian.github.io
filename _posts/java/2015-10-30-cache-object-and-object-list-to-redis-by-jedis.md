@@ -19,7 +19,7 @@ jedis.set(byte[] key, byte[] value);
 
 1、序列化工具抽象类
 
-{% highlight java linenos %}
+{% highlight java %}
 
 import java.io.*;
 
@@ -62,7 +62,7 @@ public abstract class SerializationUtil {
 
 2、对象序列化工具类
 
-{% highlight java linenos %}
+{% highlight java %}
 
 import java.io.*;
 
@@ -113,7 +113,7 @@ public class ObjectSerializationUtil<T extends Serializable> extends Serializati
 
 3、对象List序列化工具类
 
-{% highlight java linenos %}
+{% highlight java %}
 
 import java.io.*;
 import java.util.ArrayList;
@@ -182,7 +182,7 @@ public class ListSerializationUtil<T extends Serializable> extends Serialization
 
 4、Jedis工具类
 
-{% highlight java linenos %}
+{% highlight java %}
 
 import java.io.Serializable;
 import java.util.List;
@@ -278,7 +278,7 @@ public class JedisUtil<T extends Serializable> {
 
 5、配置文件
 
-{% highlight xml linenos %}
+{% highlight xml %}
 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"

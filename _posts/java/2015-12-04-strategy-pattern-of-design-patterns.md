@@ -25,7 +25,7 @@ tags: design patterns
 
 1) 首先我们应该有个武器行为的接口：WeaponBehavior，它有一个use()方法来使用武器。
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern.behavior;
 
 /**
@@ -39,7 +39,7 @@ public interface WeaponBehavior {
 {% endhighlight %}
 
 2) 这个接口有两个实现类，分别是弓箭(BowAndArrowBehavior)和斧头(AxeBehavior)。
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern.behavior;
 
 /**
@@ -54,7 +54,7 @@ public class BowAndArrowBehavior implements WeaponBehavior {
 
 {% endhighlight %}
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern.behavior;
 
 /**
@@ -72,7 +72,7 @@ public class AxeBehavior implements WeaponBehavior {
 
 3) 然后我们应该有一个角色的抽象父类（超类，super class）。这个类有一个成员变量 weaponBehavior（武器行为），还有一个fight()方法，通过调用这个方法来调用武器的行为，还有个setWeaponBehavior()方法，可以来动态的设定武器行为。
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern;
 
 import designpatterns.strategypattern.behavior.WeaponBehavior;
@@ -96,7 +96,7 @@ public abstract class Character {
 
 4) 接下来，骑士和巨魔要继承上面的父类。他们都有个构造方法，来初始化他们的武器。
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern;
 
 import designpatterns.strategypattern.behavior.BowAndArrowBehavior;
@@ -113,7 +113,7 @@ public class Knight extends Character {
 }
 {% endhighlight %}
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern;
 
 import designpatterns.strategypattern.behavior.AxeBehavior;
@@ -132,7 +132,7 @@ public class Troll extends Character {
 
 5) 做个测试
 
-{% highlight java linenos %}
+{% highlight java %}
 Character character = new Knight();
 character.fight();
 
@@ -149,7 +149,7 @@ character.fight();
 
 现在想让骑士也用斧头来当武器那么只需要调用 setWeaponBehavior() 方法来动态的设定武器行为。
 
-{% highlight java linenos %}
+{% highlight java %}
 Character character = new Knight();
 character.setWeaponBehavior(new AxeBehavior());
 character.fight();
@@ -164,7 +164,7 @@ character.fight();
 
 6) 现在又有个人来了，它是国王，能使用宝剑，那么，我们只需要让国王 King 继承 Character，让宝剑 Sword 实现 WeaponBehavior 就可以了。
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern;
 
 import designpatterns.strategypattern.behavior.SwordBehavior;
@@ -181,7 +181,7 @@ public class King extends Character {
 }
 {% endhighlight %}
 
-{% highlight java linenos %}
+{% highlight java %}
 package designpatterns.strategypattern.behavior;
 
 /**
@@ -197,7 +197,7 @@ public class SwordBehavior implements WeaponBehavior {
 
 7) 再来测试下：
 
-{% highlight java linenos %}
+{% highlight java %}
 Character character = new King();
 character.fight();
 {% endhighlight %}

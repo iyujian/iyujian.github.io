@@ -10,7 +10,7 @@ tags: shiro
 <!-- more -->
 
 1、自定义MyRealm继承AuthorizingRealm
-{% highlight java linenos %}
+{% highlight java %}
 import com.***.User;
 import com.***.userService;
 import com.***.roleService;
@@ -71,7 +71,7 @@ public class MyRealm extends AuthorizingRealm {
 }
 {% endhighlight %}
 2、修改shiro.xml
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

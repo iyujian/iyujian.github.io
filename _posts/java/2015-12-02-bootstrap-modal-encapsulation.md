@@ -11,7 +11,7 @@ tags: Bootstrap
 
 1、HTML
 
-{% highlight html linenos %}
+{% highlight html %}
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -30,7 +30,7 @@ tags: Bootstrap
 
 2、JS
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 jQuery.fn.extend({
     showModal: function(options) {
         return this.each(function() {
@@ -65,7 +65,7 @@ jQuery.fn.extend({
 {% endhighlight %}
 
 3、调用
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $('#myModal').showModal({
     title: '模态框的名称',
     contentUrl: 'view.html',

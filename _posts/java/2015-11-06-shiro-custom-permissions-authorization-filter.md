@@ -9,7 +9,7 @@ shiro的权限控制可以配置在shiroFilter的filterChainDefinitions中：
 
 <!-- more -->
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
     <!-- 此处省略其他配置信息 -->
     <property name="filterChainDefinitions">
@@ -27,7 +27,7 @@ shiro的权限控制可以配置在shiroFilter的filterChainDefinitions中：
 但是一般我们的系统中的权限都是动态的，角色和权限信息都存储于数据库中，此时就需要我们去继承PermissionsAuthorizationFilter和RolesAuthorizationFilter实现基于权限资源的权限控制和基于角色的权限控制。
 
 1、继承PermissionsAuthorizationFilter，重写isAccessAllowed方法，角色授权与此类似。
-{% highlight java linenos %}
+{% highlight java %}
 import com.***.ResourceEntity;
 import com.***.ResourceManager;
 import org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter;
@@ -81,7 +81,7 @@ public class MyPermissionsAuthorizationFilter extends PermissionsAuthorizationFi
 }
 {% endhighlight %}
 2、配置shiro.xml文件
-{% highlight xml linenos %}
+{% highlight xml %}
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
     <property name="filters">
         <util:map>

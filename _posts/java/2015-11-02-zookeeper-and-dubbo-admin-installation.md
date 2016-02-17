@@ -28,7 +28,7 @@ tar zxvf zookeeper-3.4.6.tar.gz
 
 (3) 复制 conf/zoo_sample.cfg 为 conf/zoo.cfg
 
-{% highlight bash linenos %}
+{% highlight bash %}
 cd zookeeper-3.4.6/conf
 cp zoo_sample.cfg zoo.cfg
 {% endhighlight %}
@@ -61,7 +61,7 @@ maxClientCnxns：限制连接到 ZooKeeper 的客户端的数量。
 
 3、下载并安装tomcat
 
-{% highlight bash linenos %}
+{% highlight bash %}
 wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.65/bin/apache-tomcat-7.0.65.tar.gz
 tar zxvf apache-tomcat-6.0.35.tar.gz
 cd apache-tomcat-6.0.35
@@ -72,7 +72,7 @@ rm -rf webapps/ROOT
 
 (1) 下载并解压dubbo-admin
 
-{% highlight bash linenos %}
+{% highlight bash %}
 wget http://code.alibabatech.com/mvn/releases/com/alibaba/dubbo-admin/2.4.9/dubbo-admin-2.4.9.war
 unzip dubbo-admin-2.4.1.war -d webapps/ROOT
 {% endhighlight %}
@@ -87,7 +87,7 @@ vi webapps/ROOT/WEB-INF/dubbo.properties
 
 修改相应配置如下：
 
-{% highlight text linenos %}
+{% highlight text %}
 dubbo.registry.address=zookeeper://127.0.0.1:2181
 dubbo.admin.root.password=root
 dubbo.admin.guest.password=guest

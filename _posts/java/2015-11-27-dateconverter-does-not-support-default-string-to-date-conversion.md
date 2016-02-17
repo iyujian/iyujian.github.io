@@ -53,7 +53,7 @@ ConvertUtils.register(new DateLocaleConverter(), Date.class);
 
 经测试，DateLocaleConverter() 只可以实现对日期（不包含时分秒）的转换。 如果要支持带时分秒的，我们就要自己去实现转换器了，并在 Spring 启动后执行注册的操作。
 
-{% highlight java linenos %}
+{% highlight java %}
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
 import org.apache.commons.lang3.time.DateUtils;

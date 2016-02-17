@@ -14,7 +14,7 @@ tags: dubbo
 
 1) pom文件中添加zookeeper和dubbo的依赖，提供者和消费者都需要加上。
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <!-- Zookeeper -->
 <dependency>
     <groupId>org.apache.zookeeper</groupId>
@@ -38,7 +38,7 @@ tags: dubbo
 
 2) 提供者接口的定制(该接口需单独打包，在服务提供方和消费方共享)：
 
-{% highlight java linenos %}
+{% highlight java %}
 public interface HelloWorldService {
     public String sayHello(String str);
 }
@@ -46,7 +46,7 @@ public interface HelloWorldService {
 
 3) 提供者接口的实现(对服务消费方隐藏实现)：
 
-{% highlight java linenos %}
+{% highlight java %}
 public class HelloWorldServiceImpl implements HelloWorldService {
 
     @Override
@@ -59,7 +59,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 4) 提供者的spring配置文件部分（声明暴露服务）：
 
-{% highlight xml linenos %}
+{% highlight xml %}
 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -88,7 +88,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 2、服务消费者（Consumer）部分
 
 1) pom中加入对服务提供者接口的依赖
-{% highlight xml linenos %}
+{% highlight xml %}
 <dependency>
     <groupId>com.group</groupId>
     <artifactId>dubbo-demo-service</artifactId>
@@ -97,7 +97,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 {% endhighlight %}
 
 2) 通过Spring配置引用远程服务：
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -116,7 +116,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 </beans>
 {% endhighlight %}
 3) 加载Spring配置，并调用远程服务：(也可以使用IoC注入)
-{% highlight java linenos %}
+{% highlight java %}
 package com.dubbo.helloworld;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;

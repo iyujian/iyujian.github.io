@@ -11,7 +11,7 @@ Hibernate 为我们提供了事件监听机制，我们只需要实现相应的�
 
 1、实现 PostInsertEventListener, PostUpdateEventListener, PostDeleteEventListener
 
-{% highlight java linenos %}
+{% highlight java %}
 package com.***.listener;
 
 import com.***.entity.LogEntity;
@@ -162,7 +162,7 @@ public class LogListener implements PostInsertEventListener, PostUpdateEventList
 
 2、注册监听器，可以在spring容器启动后进行注册（[在Spring启动后执行一些操作](execute-after-spring-startup.html "在Spring启动后执行一些操作")）。
 
-{% highlight java linenos %}
+{% highlight java %}
 /** 
  * 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
  */

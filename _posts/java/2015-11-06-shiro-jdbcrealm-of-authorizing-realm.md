@@ -11,7 +11,7 @@ tags: shiro
 
 1、pom文件中添加依赖
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <dependency>
 	<groupId>org.apache.shiro</groupId>
 
@@ -32,7 +32,7 @@ tags: shiro
 {% endhighlight %}
 
 2、web.xml中添加shiroFilter
-{% highlight xml linenos %}
+{% highlight xml %}
 <!-- Shiro Filter -->
 <filter>
     <filter-name>shiroFilter</filter-name>
@@ -49,7 +49,7 @@ tags: shiro
 {% endhighlight %}
 
 3、为shiro添加spring的配置文件，shiro.xml，然后在主配置文件中import。
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -134,7 +134,7 @@ tags: shiro
 
 以上的实现为密码加盐的实现，因此在生成密码的时候要注意使用下面的密码生成方式：并将方法返回的密码和salt存入数据库。
 
-{% highlight java linenos %}
+{% highlight java %}
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -165,7 +165,7 @@ public class PasswordUtil {
 4、实现shiro的注解授权
 
 需要在springmvc的配置文件中加入配置：
-{% highlight xml linenos %}
+{% highlight xml %}
 <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
 <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
 	<property name="securityManager" ref="securityManager"/>
@@ -173,7 +173,7 @@ public class PasswordUtil {
 {% endhighlight %}
 
 5、在方法上加上注解即可实现授权，
-{% highlight java linenos %}
+{% highlight java %}
 @RequiresPermissions("user:add")
 @RequestMapping("add")
 public String add() {
