@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Apache Shiro 动态授权"
-date:   2015-11-6 12:48:15 +0800
+date:   2015-11-06 12:48:15 +0800
 categories: java
 tags: shiro
 ---
