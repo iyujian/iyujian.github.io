@@ -97,3 +97,5 @@ public class MyAuthenticationHandler extends AbstractJdbcUsernamePasswordAuthent
 ["CAS单点登录初使用"](cas-first.html "CAS单点登录初使用")
 
 ["CAS单点登录与Shiro的集成"](integration-of-cas-and-shiro.html "CAS单点登录与Shiro的集成")
+
+["CAS+Shiro实现单点退出"](cas-shiro-logout.html "CAS+Shiro实现单点退出")

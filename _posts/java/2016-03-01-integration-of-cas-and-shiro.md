@@ -101,3 +101,5 @@ tags: cas shiro
 ["CAS单点登录初使用"](cas-first.html "CAS单点登录初使用")
 
 ["CAS单点登录密码加盐的认证"](cas-username-password-salt-authentication-handler.html "CAS单点登录密码加盐的认证")
+
+["CAS+Shiro实现单点退出"](cas-shiro-logout.html "CAS+Shiro实现单点退出")
