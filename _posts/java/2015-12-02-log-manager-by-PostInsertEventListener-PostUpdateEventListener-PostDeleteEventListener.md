@@ -163,11 +163,40 @@ public class LogListener implements PostInsertEventListener, PostUpdateEventList
 2、注册监听器，可以在spring容器启动后进行注册（[在Spring启动后执行一些操作](execute-after-spring-startup.html "在Spring启动后执行一些操作")）。
 
 {% highlight java %}
-/** 
- * 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
- */
-EventListenerRegistry registry  = ((SessionFactoryImpl)entityManagerFactory.unwrap(SessionFactory.class)).getServiceRegistry().getService(EventListenerRegistry.class);
-registry.getEventListenerGroup(EventType.POST_INSERT).appendListener(logListener);
-registry.getEventListenerGroup(EventType.POST_UPDATE).appendListener(logListener);
-registry.getEventListenerGroup(EventType.POST_DELETE).appendListener(logListener);
+package *****;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.event.service.spi.EventListenerRegistry;
+import org.hibernate.event.spi.EventType;
+import org.hibernate.internal.SessionFactoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.EntityManagerFactory;
+
+@Component
+public class LogRegListener implements ApplicationListener<ContextRefreshedEvent> {
+
+    @Autowired
+    private EntityManagerFactory entityManagerFactory;
+
+    @Autowired
+    private LogListener logListener;
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+
+        if (event.getApplicationContext().getParent() == null) {//父容器为null就表示是root applicationContext
+        	/** 
+			 * 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
+			 */
+            EventListenerRegistry registry  = ((SessionFactoryImpl)entityManagerFactory.unwrap(SessionFactory.class)).getServiceRegistry().getService(EventListenerRegistry.class);
+            registry.getEventListenerGroup(EventType.POST_INSERT).appendListener(logListener);
+            registry.getEventListenerGroup(EventType.POST_UPDATE).appendListener(logListener);
+            registry.getEventListenerGroup(EventType.POST_DELETE).appendListener(logListener);
+        }
+    }
+}
 {% endhighlight %}
