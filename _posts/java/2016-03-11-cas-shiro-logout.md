@@ -60,3 +60,5 @@ CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并�
 ["CAS单点登录与Shiro的集成"](integration-of-cas-and-shiro.html "CAS单点登录与Shiro的集成")
 
 ["CAS单点登录密码加盐的认证"](cas-username-password-salt-authentication-handler.html "CAS单点登录密码加盐的认证")
+
+["基于Redis的CAS服务端集群"](cluster-of-cas-server-by-redis.html "基于Redis的CAS服务端集群")

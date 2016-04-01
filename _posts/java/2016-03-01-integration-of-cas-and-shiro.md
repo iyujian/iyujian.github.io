@@ -103,3 +103,5 @@ tags: cas shiro
 ["CAS单点登录密码加盐的认证"](cas-username-password-salt-authentication-handler.html "CAS单点登录密码加盐的认证")
 
 ["CAS+Shiro实现单点退出"](cas-shiro-logout.html "CAS+Shiro实现单点退出")
+
+["基于Redis的CAS服务端集群"](cluster-of-cas-server-by-redis.html "基于Redis的CAS服务端集群")
