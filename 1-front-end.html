@@ -1,0 +1,63 @@
+---
+layout: category
+title: 前端
+permalink: /front-end/
+---
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      {% include sidebar.html %}
+      <div class="wrapper">
+        <div class="post-list">
+        {% for category in site.categories %}
+        {% if (category.first) == 'front-end' %}
+        <div class="category-title">
+          <h1>{{ page.title }}</h1>
+          <span>(共{{ category | last | size }}篇文章)</span>
+        </div>
+        {% for post in category.last %}
+            <article class="post-entry">
+            <div class="post-meta">
+              <div>
+              <label>分类：</label>
+              {% for category in post.categories %}
+              <span><a href="/{{category}}/" title="{{category}}">{{category}}</a></span>
+              {% endfor %}
+              </div>
+              <div>
+              {% if post.tags.size > 0 %}
+              <label>标签：</label>
+              {% for tag in post.tags %}
+              <span class="tag"><a href="javascript:void(0)" title="{{tag}}">{{tag}}</a></span>
+              {% endfor %}
+              {% endif %}
+              </div>
+              <div><time>{{ post.date | date: "%Y年%m月%d日" }}</time></div>
+            </div>
+            <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+            <div class="post-excerpt">
+                {{ post.content | strip_html | truncate:512 }}
+            </div>
+            <div class="post-more"><a href="{{post.url}}" title="{{post.title}}">阅读全文</a></div>
+        </article>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

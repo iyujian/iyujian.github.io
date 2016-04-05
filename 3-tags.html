@@ -1,0 +1,53 @@
+---
+title: 标签云
+permalink: /tags/
+---
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      {% include sidebar.html %}
+      <div class="wrapper">
+        <div class="category-title">
+          <h1>{{ page.title }}</h1>
+          <span>(共{{ site.tags.size }}个标签)</span>
+        </div>
+        <div class="tag-list">
+        {% for tag in site.tags %}
+          <div class="tag-item" _id="{{tag[0]}}">
+            <div>
+              <h2>{{tag[0]}}</h2>
+              <span>({{tag | last | size}})</span>
+            </div>
+            <ul>
+            {% for post in tag[1] %}
+              <li><a href="{{post.url}}" title="{{post.title}}">{{post.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+    <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script>
+      scroll();
+      window.onhashchange=function(){
+        scroll();
+      };
+      function scroll() {
+        var hash = location.hash.replace('#','');
+        $('html,body').animate({scrollTop:$('div[_id='+hash+']').offset().top-86}, 500);
+      }
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,23 @@
+<aside class="site-sidebar">
+    <nav class="sidebar-item sidebar-item-categories">
+        <div class="sidebar-item-title">文章分类</div>
+        <ul>
+            {% for category in site.categories %}
+            <li>
+                <a href="/{{ category | first }}/">{{ category | first }} ({{ category | last | size }})</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="sidebar-item sidebar-item-tags">
+        <div class="sidebar-item-title">标签云</div>
+        {% for tag in site.tags %}<span class="tag"><a href="/tags/#{{ tag[0] }}">{{ tag[0] }}</a></span>{% endfor %}
+    </div>
+    {% if page.url == '/' %}
+    <div class="sidebar-item sidebar-item-categories">
+        <div class="sidebar-item-title">友情链接</div>
+        <ul>
+        </ul>
+    </div>
+    {% endif %}
+</aside>
