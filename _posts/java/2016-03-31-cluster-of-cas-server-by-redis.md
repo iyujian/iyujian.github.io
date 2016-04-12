@@ -3,11 +3,11 @@ layout: post
 title:  "基于Redis的CAS服务端集群"
 date:   2016-03-31 17:23:57 +0800
 categories: java
-tags: cas redis
+tags: [cas, redis]
 ---
 为了保证生产环境CAS(Central Authentication Service)认证服务的高可用，防止出现单点故障，我们需要对CAS Server进行集群部署。
 
-CAS的Ticket默认是以Map的方式存储在JVM内存中的，多个tomcat之间无法共享，因此我们可以使用MemCached或者Redis来存储Ticket。MemCache的方式官方已经提供了解决方案，我们这里使用的是Redis，具体实现可以参考CAS的模块：cas-server-integration-memcached。
+CAS的Ticket默认是以Map的方式存储在JVM内存中的，多个tomcat之间无法共享，因此我们可以使用MemCached或者Redis来存储Ticket。MemCached的方式官方已经提供了解决方案，我们这里使用的是Redis，具体实现可以参考CAS的模块：cas-server-integration-memcached。
 
 1、pom.xml文件中加入依赖：
 
@@ -153,7 +153,7 @@ public final class RedisTicketRegistry extends AbstractDistributedTicketRegistry
 }
 {% endhighlight %}
 
-3、修改“ticketRegistry.xml”，先删除文件中所有的bean定义，包括ticketRegistry、ticketRegistryCleaner、jobDetailTicketRegistryCleaner和triggerJobDetailTicketRegistryCleaner，然后添加下面的代码片段：
+3、修改“ticketRegistry.xml”，先删除文件中原有的bean定义，包括ticketRegistry、ticketRegistryCleaner、jobDetailTicketRegistryCleaner和triggerJobDetailTicketRegistryCleaner，然后添加下面的代码片段：
 
 {% highlight xml %}
 <bean id="ticketRegistry" class="com.***.cas.ticket.registry.RedisTicketRegistry">
@@ -174,6 +174,8 @@ public final class RedisTicketRegistry extends AbstractDistributedTicketRegistry
     <property name="connectionFactory" ref="jedisConnectionFactory"/>
 </bean>
 {% endhighlight %}
+
+4、配置Tomcat集群，实现Session共享，参考：https://github.com/jcoleman/tomcat-redis-session-manager。
 
 到此，基于Redis的CAS Server集群配置已经完成。
 
