@@ -59,4 +59,9 @@ public class TestRedis {
 批量插入耗时：156
 {% endhighlight %}
 
-从数据可以看出，使用 Pipeline 来做数据批量插入效率还是很高的。
+从数据可以看出，使用“Pipeline”来做数据批量插入效率还是很高的。 同样，获取和删除等操作也可以通过“Pipeline”来提高效率。
+
+{% highlight java %}
+pipeline.hget("sequence_batch", ""+i);
+pipeline.hdel("sequence_batch", ""+i);
+{% endhighlight %}
