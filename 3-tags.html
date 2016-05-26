@@ -45,7 +45,9 @@ permalink: /tags/
       };
       function scroll() {
         var hash = location.hash.replace('#','');
-        $('html,body').animate({scrollTop:$('div[_id='+hash+']').offset().top-86}, 500);
+        if(hash !== '') {
+          $('html,body').animate({scrollTop:$('div[_id='+hash+']').offset().top-86}, 500);
+        }
       }
     </script>
   </body>

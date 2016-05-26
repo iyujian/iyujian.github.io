@@ -29,7 +29,7 @@ if(/micromessenger/.test(ua)) {
   window.location.href = urlSchema;
   setTimeout(() => {
     window.location.href = downloadUrl;
-  }, 1500);
+  }, 500);
 }
 {% endhighlight %}
 
@@ -43,4 +43,4 @@ taobao://product?id=1&type=2
 
 3、iOS的下载地址以“itms-apps://”开头，用来打开iOS设备上的AppStore。
 
-4、setTimeout的时间本来设置的是500ms，在Android设备上没有问题，但是在iOS设备上会直接跳转到AppStore，把时间延长到1500ms，可以解决该问题。
+<!-- 4、setTimeout的时间本来设置的是500ms，在Android设备上没有问题，但是在iOS设备上会在打开APP之前跳转到AppStore，导致无法打开APP，把时间延长到1500ms，可以解决该问题。 -->
