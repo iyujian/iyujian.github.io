@@ -152,7 +152,7 @@ public class SensitiveWordFilter {
 
 输出结果：
 
-```
+{% highlight text %}
 “日本女人来中国了”包含敏感词
 “如何成为一个码农”不包含敏感词
-```
+{% endhighlight %}
