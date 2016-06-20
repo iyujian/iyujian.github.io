@@ -1,35 +1,41 @@
 ---
 layout: post
-title:  "如何在手机浏览中打开APP（Android、iOS）"
+title:  "H5实现打开APP（Android、iOS）"
 date:   2016-05-19 15:15:32 +0800
 categories: front-end
 ---
-在手机浏览器中，如果用户安装了App就打开该App，否则进入App下载页面。
+手机浏览器中打开一个H5页面，点击一个按钮，如果用户安装了App就打开该App，否则进入App下载页面。
 
 {% highlight javascript %}
-var urlSchema = [Schema]://[URL];
-var androidDownloadUrl = 'http://***';
-var iOSDownloadUrl = 'itms-apps://www.apple.com/****';
+<button type="button" onclick="openApp();">打开APP</button>
+{% endhighlight %}
 
-// 获取当前浏览器用于 HTTP 请求的用户代理头的值
-var ua = navigator.userAgent.toLowerCase();
+{% highlight javascript %}
+function openApp() {
+  var urlSchema = [Schema]://[URL];
+  var androidDownloadUrl = 'http://***';
+  var iOSDownloadUrl = 'itms-apps://www.apple.com/****';
 
-if(/micromessenger/.test(ua)) {
-  // 微信
+  // 获取当前浏览器用于 HTTP 请求的用户代理头的值
+  var ua = navigator.userAgent.toLowerCase();
 
-} else {
-  var downloadUrl;
-  if(/iphone|ipad|ipod/.test(ua)) {
-    // iOS
-    downloadUrl = iOSDownloadUrl;
-  } else if(/android/.test(ua)) {
-    // Android
-    downloadUrl = androidDownloadUrl;
+  if(/micromessenger/.test(ua)) {
+    // 微信
+
+  } else {
+    var downloadUrl;
+    if(/iphone|ipad|ipod/.test(ua)) {
+      // iOS
+      downloadUrl = iOSDownloadUrl;
+    } else if(/android/.test(ua)) {
+      // Android
+      downloadUrl = androidDownloadUrl;
+    }
+    window.location.href = urlSchema;
+    setTimeout(() => {
+      window.location.href = downloadUrl;
+    }, 500);
   }
-  window.location.href = urlSchema;
-  setTimeout(() => {
-    window.location.href = downloadUrl;
-  }, 500);
 }
 {% endhighlight %}
 
