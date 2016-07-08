@@ -7,8 +7,6 @@ categories: java
 
 以下是分别在Windows和CentOS系统下JDK的安装过程及环境变量的配置过程：
 
-<!-- more -->
-
 1、从oracle下载JDK并安装，windows下直接点击安装即可，CentOS下用yum或rpm安装，具体过程略过。
 
 2、Windows下Java环境变量的配置
@@ -40,7 +38,3 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 {% endhighlight %}
-
-
-
-

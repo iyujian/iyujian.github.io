@@ -7,8 +7,6 @@ tags: shiro
 ---
 在上一篇文章讲了Shiro自带的JdbcRealm实现的登录和授权，但是这种方式不能在principal中传入对象，所以我们可能需要自定义Realm的实现。
 
-<!-- more -->
-
 1、自定义MyRealm继承AuthorizingRealm
 {% highlight java %}
 import com.***.User;

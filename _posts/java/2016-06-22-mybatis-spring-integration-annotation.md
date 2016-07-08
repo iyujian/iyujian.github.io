@@ -136,7 +136,7 @@ public class UserService {
 >> 4.3、UserMapper.java
 
 {% highlight java %}
-import com.devaeye.cms.core.entity.UserEntity;
+import com.***.core.entity.UserEntity;
 import org.apache.ibatis.annotations.Insert;
 
 public interface UserMapper {

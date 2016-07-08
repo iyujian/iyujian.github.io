@@ -11,8 +11,6 @@ tags: c3p0
 Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last packet successfully received from the server was 63,210,211 milliseconds ago.  The last packet sent successfully to the server was 63,210,212 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.
 ```
 
-<!-- more -->
-
 解决办法有三种：
 
 1、修改MYSQl的配置文件“my.cnf”（Windows中为“my.ini”），延长“wait_timeout”。
@@ -49,8 +47,8 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last pac
 {% endhighlight %}
 
 <pre>
-严重: Servlet.service() for servlet [dispatcher] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed: 
-org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed: 
+严重: Servlet.service() for servlet [dispatcher] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed:
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed:
 	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:430)
 	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373)
 	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:438)
@@ -94,7 +92,7 @@ org.springframework.transaction.CannotCreateTransactionException: Could not open
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed: 
+Caused by: javax.persistence.PersistenceException: org.hibernate.TransactionException: JDBC begin transaction failed:
 	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763)
 	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677)
 	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.throwPersistenceException(AbstractEntityManagerImpl.java:1771)
@@ -102,7 +100,7 @@ Caused by: javax.persistence.PersistenceException: org.hibernate.TransactionExce
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:159)
 	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:380)
 	... 47 more
-Caused by: org.hibernate.TransactionException: JDBC begin transaction failed: 
+Caused by: org.hibernate.TransactionException: JDBC begin transaction failed:
 	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.doBegin(JdbcTransaction.java:76)
 	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.begin(AbstractTransactionImpl.java:162)
 	at org.hibernate.internal.SessionImpl.beginTransaction(SessionImpl.java:1435)

@@ -7,8 +7,6 @@ tags: hibernate
 ---
 Hibernate 为我们提供了事件监听机制，我们只需要实现相应的监听器，就可以追踪到对象的修改，比如 PostInsertEventListener, PostUpdateEventListener, PostDeleteEventListener、PostLoadEventListener等等，都在 org.hibernate.event.spi 包中。
 
-<!-- more -->
-
 1、实现 PostInsertEventListener, PostUpdateEventListener, PostDeleteEventListener
 
 {% highlight java %}
@@ -189,7 +187,7 @@ public class LogRegListener implements ApplicationListener<ContextRefreshedEvent
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
         if (event.getApplicationContext().getParent() == null) {//父容器为null就表示是root applicationContext
-        	/** 
+        	/**
 			 * 获取SessionFactory的方式：1、直接注入SessionFactory；2、如果用的是 JPA 的话，那么需要通过entityManagerFactory来得到SessionFactory
 			 */
             EventListenerRegistry registry  = ((SessionFactoryImpl)entityManagerFactory.unwrap(SessionFactory.class)).getServiceRegistry().getService(EventListenerRegistry.class);

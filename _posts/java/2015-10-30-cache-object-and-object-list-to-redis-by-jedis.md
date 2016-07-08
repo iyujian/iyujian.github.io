@@ -15,8 +15,6 @@ jedis.set(byte[] key, byte[] value);
 
 我们可以使用这个方法来间接的实现对对象的缓存。原理就是在缓存对象之前，先将该对象序列化为 byte 数组，而取出缓存后再反序列化为对象。
 
-<!-- more -->
-
 1、序列化工具抽象类
 
 {% highlight java %}
@@ -194,11 +192,11 @@ import redis.clients.jedis.ShardedJedisPool;
  * Jedis工具类
  */
 public class JedisUtil<T extends Serializable> {
-	
+
     private static ShardedJedisPool pool;
-    
+
     private ObjectSerializationUtil<T> osu = new ObjectSerializationUtil<T>();
-    
+
     private ListSerializationUtil<T> lsu = new ListSerializationUtil<T>();
 
     /**
@@ -209,7 +207,7 @@ public class JedisUtil<T extends Serializable> {
     public static ShardedJedis getResource() {
         return pool.getResource();
     }
-    
+
     /**
      * 缓存对象到Redis
      * @param key
@@ -224,7 +222,7 @@ public class JedisUtil<T extends Serializable> {
             pool.returnResourceObject(jedis);
         }
     }
-    
+
     /**
      * 从Redis中获取缓存对象
      * @param key
@@ -238,7 +236,7 @@ public class JedisUtil<T extends Serializable> {
             pool.returnResourceObject(jedis);
         }
     }
-    
+
     /**
      * 缓存对象List到Redis
      * @param key
@@ -253,7 +251,7 @@ public class JedisUtil<T extends Serializable> {
             pool.returnResourceObject(jedis);
         }
     }
-    
+
     /**
      * 从Redis中获取对象List
      * @param key
@@ -267,7 +265,7 @@ public class JedisUtil<T extends Serializable> {
             pool.returnResourceObject(jedis);
         }
     }
-    
+
     public void setPool(ShardedJedisPool pool) {
         JedisUtil.pool = pool;
     }
@@ -315,5 +313,3 @@ public class JedisUtil<T extends Serializable> {
 </beans>
 
 {% endhighlight %}
-
-
