@@ -6,6 +6,7 @@ categories: java
 tags: [Spring Task]
 ---
 > 1、引入相关jar包。
+
 > 2、在Spring配置文件中加入“<task:annotation-driven/>”，并配置扫描路径。
 
 {% highlight xml %}
