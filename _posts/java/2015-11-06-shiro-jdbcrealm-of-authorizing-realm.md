@@ -164,7 +164,9 @@ public class PasswordUtil {
 
 需要在springmvc的配置文件中加入配置：
 {% highlight xml %}
-<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
+    <property name="proxyTargetClass" value="true" />
+</bean>
 <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
 	<property name="securityManager" ref="securityManager"/>
 </bean>
