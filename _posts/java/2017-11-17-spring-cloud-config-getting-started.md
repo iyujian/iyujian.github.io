@@ -113,4 +113,4 @@ public class ConfigClientApplication {
 }
 {% endhighlight %}
 
-运行localhost:8081，输入： Hello config!
+运行localhost:8081，输出： Hello config!
