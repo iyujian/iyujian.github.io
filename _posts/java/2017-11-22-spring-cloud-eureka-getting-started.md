@@ -89,9 +89,9 @@ public class EurekaClientApplication {
 	}
 
 	@GetMapping("/hello")
-    public String serviceUrl() {
-       return "Hello eureka.";
-    }
+	public String serviceUrl() {
+		return "Hello eureka.";
+	}
 }
 {% endhighlight %}
 
