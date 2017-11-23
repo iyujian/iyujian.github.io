@@ -59,7 +59,7 @@ eureka:
 
 启动工程，输入http://localhost:8761即可看到Eureka Server首页。
 
-> 2、Eureka client 将自身的服务注册在Eureka server上。
+> 2、Eureka client： 服务提供者和服务消费者
 
 创建Spring boot 应用，pom.xml添加Eureka依赖：
 
@@ -67,6 +67,10 @@ eureka:
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-eureka</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 {% endhighlight %}
 
@@ -83,6 +87,11 @@ public class EurekaClientApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EurekaClientApplication.class, args);
 	}
+
+	@GetMapping("/hello")
+    public String serviceUrl() {
+       return "Hello eureka.";
+    }
 }
 {% endhighlight %}
 
@@ -95,11 +104,25 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+  	healthcheck:
+	  enabled: true
   instance:
     prefer-ip-address: true
 spring:
   application:
-    name: eureka-client
+    name: service-provider
 ```
 
 运行EurekaClientApplication，浏览器打开http://localhost:8761，会看到EUREKA-CLIENT已经注册到Eureka server上了。
+
+如何消费服务？消费者也是一个Eureka client，配置同上。
+
+{% highlight java %}
+@Autowired
+private EurekaClient eurekaClient;
+
+@GetMapping("/")
+public String hello() {
+    return restTemplate.getForObject(eurekaClient.getNextServerFromEureka("SERVICE-PROVIDER", false).getHomePageUrl() + "/hello", String.class);
+}
+{% endhighlight %}
