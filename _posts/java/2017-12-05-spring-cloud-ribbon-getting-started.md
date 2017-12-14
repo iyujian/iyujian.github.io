@@ -10,7 +10,7 @@ Ribbon是一个客户端侧负载均衡器（Client Side Load Balancer）。每�
 
 > Ribbon用Eureka作为注册中心，ribbon需要作为Eureka client注册在Eureka server上。
 
-1. 添加Ribbon和Eurekak客户端依赖。
+1. 添加Ribbon和Eureka客户端依赖。
 
 {% highlight xml %}
 <dependency>
