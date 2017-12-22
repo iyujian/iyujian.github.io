@@ -34,8 +34,7 @@ layout: default
         {% endfor %}
     </div>
 
-{{ paginator.page }}
-    {% if paginator.total_pages > 1 %}
+  {% if paginator.total_pages > 1 %}
 	<div class="pagination">
 	  {% if paginator.previous_page %}
       {% if paginator.page == 2 %}
