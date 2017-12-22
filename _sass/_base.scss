@@ -23,6 +23,7 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    padding-top: 65px;
 }
 
 
@@ -174,7 +175,6 @@ pre {
     }
 
     position: relative;
-    margin-top: 100px;
 
     > .wrapper {
         width: 75%;
@@ -219,3 +219,11 @@ pre {
     background-color: white;
     padding: $spacing-unit / 3 $spacing-unit
 }
+
+header {
+  .navbar-brand {
+      h1 {
+        font-size: 1em;
+    }  
+  }
+} 

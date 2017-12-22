@@ -172,13 +172,12 @@
 }
  .site-sidebar {
     //width: 100 - $site-header-width;
-    float: right;
-    width: 25%;
+    //float: right;
+    //width: 25%;
     color: white;
     > .sidebar-item {
         background-color: white;
         padding: $spacing-unit / 2;
-        margin-bottom: $spacing-unit;
         color: #666666;
         > .sidebar-item-title {
             color: #333333;
@@ -209,7 +208,7 @@
  }
 .tag-list {
     .tag-item {
-        background-color: white;
+        background-color: #f9f9f9;
         padding: $spacing-unit;
         margin-bottom: $spacing-unit;
         h2 {
@@ -221,7 +220,7 @@
         > a {
             color: #d35400;
             display: block;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             &:hover {
                 text-decoration: none;
             }
@@ -242,9 +241,10 @@
  */
 .site-footer {
     padding: $spacing-unit 0 0;
-    background-color: white;
+    background-color: #f9f9f9;
     margin-top: $spacing-unit;
     text-align: center;
+    border-top: 1px solid #e5e5e5;
     .footer-heading {
         display: inline-block;
         h2 {

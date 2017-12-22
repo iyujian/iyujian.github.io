@@ -12,15 +12,13 @@ permalink: /front-end/
 
     {% include header.html %}
 
-    <div class="page-content">
-      {% include sidebar.html %}
-      <div class="wrapper">
+    <div class="container">
+      <div class="col-md-9">
         <div class="post-list">
         {% for category in site.categories %}
         {% if (category.first) == 'front-end' %}
-        <div class="category-title">
-          <h1>{{ page.title }}</h1>
-          <span>(共{{ category | last | size }}篇文章)</span>
+        <div class="page-header">
+          <h1>{{ page.title }}<small>(共{{ category | last | size }}篇文章)</small></h1>
         </div>
         {% for post in category.last %}
             <article class="post-entry">
@@ -54,6 +52,7 @@ permalink: /front-end/
         {% endfor %}
         </div>
       </div>
+      {% include sidebar.html %}
     </div>
 
     {% include footer.html %}
