@@ -360,7 +360,9 @@
         margin-right: $spacing-unit;
     }
 }
-
+.post-excerpt {
+    word-wrap: break-word;
+}
 .post-link {
     display: block;
     font-size: 24px;
