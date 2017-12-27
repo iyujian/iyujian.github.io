@@ -7,9 +7,24 @@ layout: null
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-            
+
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/java/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/front-end/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/database/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/others/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/tags/</loc>
   </url>
 {% for post in site.posts%}
   <url>
