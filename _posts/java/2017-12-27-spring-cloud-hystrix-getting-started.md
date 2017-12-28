@@ -37,20 +37,20 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 public class HystrixApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HystrixApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HystrixApplication.class, args);
+    }
 
-	@HystrixCommand(fallbackMethod = "fallbackHello")
-	@GetMapping("hello/{name}")
+    @HystrixCommand(fallbackMethod = "fallbackHello")
+    @GetMapping("hello/{name}")
     public String hello(@PathVariable String name) {
-	    /*服务提供者的url*/
-	    String url = "";
-	    return new RestTemplate().getForObject(url, String.class);
+        /*服务提供者的url*/
+        String url = "";
+        return new RestTemplate().getForObject(url, String.class);
     }
 
     public String fallbackHello(String name) {
-	    return "fallback: " + name;
+        return "fallback: " + name;
     }
 }
 ```
