@@ -5,9 +5,11 @@ date:   2016-03-11 13:28:06 +0800
 categories: java
 tags: cas shiro
 ---
-CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并没有退出，依然可以访问。
+CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并没有退出，依然可以访问。解决方案：
 
-1、配置“web.xml”，在其他filter之前添加：
+## 1. 修改业务系统，即cas客户端
+
+1.1、配置“web.xml”，在其他filter之前添加：
 
 {% highlight xml %}
 <!-- 单点退出 begin -->
@@ -25,7 +27,7 @@ CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并�
 <!-- 单点退出 end -->
 {% endhighlight %}
 
-2、在shiro的配置文件中，添加：
+1.2、在shiro的配置文件中，添加：
 
 {% highlight xml %}
 <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
@@ -33,7 +35,7 @@ CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并�
 </bean>
 {% endhighlight %}
 
-3、修改shiro配置文件中的“shiroFilter”，将Shiro默认的logoutFilter替换为上面定义的:
+1.3、修改shiro配置文件中的“shiroFilter”，将Shiro默认的logoutFilter替换为上面定义的:
 
 {% highlight xml %}
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -47,7 +49,9 @@ CAS+Shiro实现了统一认证，但是在做登出操作的时候子系统并�
 </bean>
 {% endhighlight %}
 
-4、修改CAS服务器端的“cas-servlet.xml”文件。将“p:followServiceRedirects="${cas.logout.followServiceRedirects:false}"”改为true，以便退出后可以重定向到登录页。
+## 2. 修改CAS服务器端
+
+修改CAS服务器端的“cas-servlet.xml”文件。将“p:followServiceRedirects="${cas.logout.followServiceRedirects:false}"”改为true，以便退出后可以重定向到登录页。
 
 {% highlight xml %}
 <bean id="logoutAction" class="org.jasig.cas.web.flow.LogoutAction"
