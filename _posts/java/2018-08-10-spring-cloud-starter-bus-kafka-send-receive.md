@@ -10,7 +10,7 @@ tags: [Spring Cloud]
 
 由于消息总线在微服务架构系统中被广泛使用，所以它同配置中心一样，几乎是微服务架构中的必备组件。 Spring Cloud 作为微服务架构综合性的解决方案，对此自然也有自己的实现，这就是“Spring Cloud Bus”。 通过使用Spring Cloud Bus,可以非常容易地搭建起消息总线，同时实现了一些消息总线中的常用功能，比如，配合Spring Cloud Config 实现微服务应用配置信息的动态更新等。
 
-目前Spring Cloud Bus提供了对RabbitMQ和Kafka的支持，下面以Kafka为例，介绍一下如何发送和接收消息。
+目前Spring Cloud Bus提供了对RabbitMQ和Kafka的支持，下面以Kafka为例，介绍一下如何发送和接收消息（基于spring boot 2.0.4.RELEASE）。
 
 1、首先创建springboot工程，并引入依赖：
 
