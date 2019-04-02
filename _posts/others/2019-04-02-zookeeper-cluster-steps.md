@@ -5,8 +5,8 @@ date:   2019-04-02 19:28:19 +0800
 categories: others
 tags: [Zookeeper]
 ---
-zookeeper集群
 1、下载并安装jdk
+
 2、下载并解压zookeeper-3.4.13.tar.gz
 ```text
 cd /opt
